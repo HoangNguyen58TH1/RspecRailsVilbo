@@ -1,0 +1,77 @@
+### 20/11/2020
+- Rspec là testing framework
+- Rspec Rails là mở rộng của Rspec, giúp mình viết unit test cho controller, view, models vs helper.
+- ??? Nó cũng cung cấp khả năng viết integration tests với selenium (sử dụng capybara).
+
+#
+- Describe tạo 1 example group
+- Trong describe block có thể khái báo describe khác, hoặc context hoặc it.
+- it tạo ra 1 example.
+- nested example(describe or context in "describe block")
+
+- describe "ClasName" do end;
+- describe "#instance_method" do end;
+- describe ".class_method" do end;
+
+- no using "if" trong "it" --> using context thay it.
+- context (when or with ...)
+
+- expect(actual).to matcher(expected)
+- expect(actual).not_to matcher(expected)
+
+- so sánh chuỗi hay array thì be. equal
+- so sánh số thì = hay >=, <=
+
+- Mình maybe tự custom Matcher.
+
+# Subject
+- Implicitly subject: (subject ngầm định)
++ Cái describe đầu tiên ngoài cùng, nếu argument là 1 Class thì trong describe block đó: các example sẽ nhận đc 1 instance của chính Class đó chính là "subject". (subject_spec.rb)
+  --> subject chính là instance của Class đó --> nó empty và là be_instance_of của Array(Class).
+
+- Explicit subject: (subject rõ ràng)
+...
+
+- Cú pháp One-liner:
+  + is_expected.to tương đương với expect(subject).to
+  + should
+
+- Hook.
+
+- Helper methods
++ let && let!
++ thay vì tạo 1 instance variable --> nên using let.
+  --> let help variable đó lazy load.
+
++ let được defined khi nó đc call
++ let! đc defind sau nó block chứa nó đc defined.
+
+- Maybe defined "helper method" trong example group.
+--> using for example or example group in group đó.
+
+- described_class ???
+
+### 
+rails generate model Article title:string text:text
+--> create table
+
+rails db:migrate
+
+- Shared examples
+- Shared context
+- Stub/Mock data (Thư viện rspec-mocks)
+- Test doubles
+- Method stubs
+- Stub một chuỗi methods
+- Factory Bot
+
+
+# Viết Unit Test trong Rails.
+- rails generate model
+- rails generate rspec:model User
+- sử dụng pattern tương tự với các specs khác: controller, view, helper, mailer,...
+- Rspec M vs C.
+
+- Feature spec: tets app của bạn = cách mô phỏng user thực tương tác vs web.
+- Helper spec: test helper.
+
